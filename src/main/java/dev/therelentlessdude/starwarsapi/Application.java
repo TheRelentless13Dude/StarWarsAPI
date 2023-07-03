@@ -26,13 +26,16 @@ public class Application {
             Mono<List<People>> people = service.getPeople();
             System.out.println("People list built, back at Main------>");
             System.out.println("<-------- About to Subscribe to repository and save......");
-            //people.subscribe(repository::saveAll);
-            people.subscribe(response -> {
+            people.subscribe(repository::saveAll);
+            System.out.println("people monopublishMulticast is: ");
+            System.out.println(people);
+            System.out.println("Attempting to subscribe");
+            /*people.subscribe(response -> {
                 System.out.println("<<<<<<<<<< Subscribed Successfully >>>>>>>>>>");
                 System.out.println("<<<<<<<<<< About to save.... >>>>>>>>>>");
                 repository.saveAll(response);
                 System.out.println("<<<<<<<<<< Saved to db. >>>>>>>>>>");
-            });
+            });*/
             System.out.println("Subscribed to repository");
             System.out.println("<<<<<<<"+repository);
         };
