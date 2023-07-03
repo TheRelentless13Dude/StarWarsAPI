@@ -8,6 +8,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -52,7 +53,9 @@ public PeopleService() {
                 """;
         System.out.println("<------ Document built, trying to build Mono List now using graphQlClient...");
         Mono<List<People>> people = graphQlClient.document(document).retrieve("people").toEntityList(People.class);
-        System.out.println("Mono list Built, returning people now. ---------->");
+        for (String s : Arrays.asList("People list is: " + people.publish(Mono::log), "Is this right?")) {
+            System.out.println(s);
+        }
 
         return people;
     }
