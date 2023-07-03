@@ -1,0 +1,25 @@
+type Film {
+    title: String!
+    episodeID: Int!
+    director: String!
+    releaseDate: String!
+    characters: [Person!]!
+}
+
+type Person {
+    name: String!
+    height: String!
+    mass: String!
+    gender: String!
+    homeworld: Planet!
+}
+
+type Planet {
+    name: String!
+    climate: String!
+    population: String!
+}
+
+type Query {
+    getPeopleById(id: Int!): Person
+}

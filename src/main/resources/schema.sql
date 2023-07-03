@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS People (
+    id INT NOT NULL,
+    name VARCHAR(250) NOT NULL,
+    height VARCHAR(250) NOT NULL,
+    mass VARCHAR(250) NOT NULL,
+    gender VARCHAR(250) NOT NULL,
+    homeworld VARCHAR(250) NOT NULL,
+    PRIMARY KEY (id)
+);
