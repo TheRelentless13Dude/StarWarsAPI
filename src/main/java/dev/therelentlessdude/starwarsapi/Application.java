@@ -32,6 +32,7 @@ public class Application {
             System.out.println(testURL.getProtocol());
             System.out.println("uri For Subscribing is: "+uriForSub.getScheme());
             peopleResult.subscribe(repository::saveAll);
+
         };
     }
 

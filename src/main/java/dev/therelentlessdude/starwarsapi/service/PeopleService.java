@@ -50,7 +50,6 @@ public PeopleService() {
         System.out.println("<------ Document built, trying to build Mono List now using graphQlClient...");
         Mono<List<People>> people = graphQlClient.document(document).retrieve("people").toEntityList(People.class);
 
-
         return people;
     }
 }

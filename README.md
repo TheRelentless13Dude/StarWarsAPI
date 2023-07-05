@@ -16,6 +16,7 @@ Currently, we are able to create a "People" repository using the WebClient, Http
 
 We can retrieve the people in our query to the API.
 
+
 --------------------------------------------------------------------------------------------------------------------------
 
 ### Current Issues:
@@ -37,14 +38,13 @@ entirely out of date for this type of project.
     detailed understanding of it.
  -  GraphQL is an entirely new form of query language for me. I will need more time and hands-on usage to grasp the full
     functionality of this, as ORACLE SQL has been the only SQL language I have had much experience in.
-
+    
 --------------------------------------------------------------------------------------------------------------------------
 
 ### Reference Documentation:
 
 For further reference, please consider the following sections:
 
-@@ -12,7 +33,7 @@ For further reference, please consider the following sections:
 * [Spring for GraphQL](https://docs.spring.io/spring-boot/docs/3.1.1/reference/html/web.html#web.graphql)
 * [Spring Web](https://docs.spring.io/spring-boot/docs/3.1.1/reference/htmlsingle/#web)
 
@@ -52,7 +52,6 @@ For further reference, please consider the following sections:
 
 The following guides illustrate how to use some features concretely:
 
-@@ -21,11 +42,3 @@ The following guides illustrate how to use some features concretely:
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
