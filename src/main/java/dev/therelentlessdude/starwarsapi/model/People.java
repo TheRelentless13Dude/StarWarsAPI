@@ -9,6 +9,7 @@ public record People(
         String height,
         String mass,
         String gender,
-        String homeworld) {
+        String homeworld
+) {
 
 }
