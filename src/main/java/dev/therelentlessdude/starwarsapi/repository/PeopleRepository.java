@@ -1,7 +1,8 @@
 package dev.therelentlessdude.starwarsapi.repository;
 
-import dev.therelentlessdude.starwarsapi.model.People;
+
+import dev.therelentlessdude.starwarsapi.Classes.Person;
 import org.springframework.data.repository.ListCrudRepository;
 
-public interface PeopleRepository extends ListCrudRepository<People, Integer> {
+public interface PeopleRepository extends ListCrudRepository<Person, Integer> {
 }
