@@ -26,36 +26,29 @@ public PeopleService() {
 
     WebClient finalResponse = WebClient.create(testClientResponse);
 
-        //test
-//        graphQlClient = HttpGraphQlClient.builder(client2).build();
-
-        //test 2
-    System.out.println("************** Attempting to build graphQlClient using testClient now... **************");
         graphQlClient = HttpGraphQlClient.builder(finalResponse).build();
-    System.out.println("************** graphQlClient built **************");
-        //original
-//        graphQlClient = HttpGraphQlClient.builder(client).build();
+
     }
 
     public Mono<List<People>> getPeople() {
+        System.out.println("<<<<<<<<<< Inside getPeople in PeopleService now >>>>>>>>>>");
         //language=GraphQL
         //Request=GET
         String document = """
                 query{
-                    people{
+                    results[
+                     {
                         name
                         height
                         mass
                         gender
                         homeworld
-                    }
+                        }
+                    ]
                 }
                 """;
         System.out.println("<------ Document built, trying to build Mono List now using graphQlClient...");
         Mono<List<People>> people = graphQlClient.document(document).retrieve("people").toEntityList(People.class);
-        for (String s : Arrays.asList("People list is: " + people.publish(Mono::log), "Is this right?")) {
-            System.out.println(s);
-        }
 
         return people;
     }

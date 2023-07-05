@@ -23,3 +23,7 @@ type Planet {
 type Query {
     getPeopleById(id: Int!): Person
 }
+
+schema {
+    query: Query
+}

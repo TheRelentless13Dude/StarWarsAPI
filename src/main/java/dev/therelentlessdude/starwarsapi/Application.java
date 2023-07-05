@@ -7,8 +7,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpInputMessage;
 import reactor.core.publisher.Mono;
 
+import java.net.URI;
+import java.net.URL;
 import java.sql.SQLOutput;
 import java.util.List;
 
@@ -22,22 +25,14 @@ public class Application {
     @Bean
     CommandLineRunner commandLineRunner(PeopleService service, PeopleRepository repository) {
         return args -> {
-            System.out.println("<---------- Building People List now.");
-            Mono<List<People>> people = service.getPeople();
-            System.out.println("People list built, back at Main------>");
-            System.out.println("<-------- About to Subscribe to repository and save......");
-            people.subscribe(repository::saveAll);
-            System.out.println("people monopublishMulticast is: ");
-            System.out.println(people);
-            System.out.println("Attempting to subscribe");
-            /*people.subscribe(response -> {
-                System.out.println("<<<<<<<<<< Subscribed Successfully >>>>>>>>>>");
-                System.out.println("<<<<<<<<<< About to save.... >>>>>>>>>>");
-                repository.saveAll(response);
-                System.out.println("<<<<<<<<<< Saved to db. >>>>>>>>>>");
-            });*/
-            System.out.println("Subscribed to repository");
-            System.out.println("<<<<<<<"+repository);
+
+            Mono<List<People>> peopleResult = service.getPeople();
+            URI uriForSub = new URI(peopleResult.toString());
+            URL testURL = new URL("https://swapi.dev/api/people");
+            System.out.println(testURL.getProtocol());
+            System.out.println("uri For Subscribing is: "+uriForSub.getScheme());
+            peopleResult.subscribe(repository::saveAll);
+
         };
     }
 
